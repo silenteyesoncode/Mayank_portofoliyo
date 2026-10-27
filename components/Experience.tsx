@@ -3,6 +3,11 @@
 import { experiences } from "@/lib/data/experience";
 import { ChevronRight, Award } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  ClinikallyIllustration,
+  MeradocIllustration,
+  AsterideIllustration,
+} from "@/components/ExperienceIllustrations";
 
 const companyBadgeColors: Record<string, string> = {
   clinikally: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
@@ -13,6 +18,19 @@ const companyBadgeColors: Record<string, string> = {
 export default function Experience() {
   const featured = experiences.slice(0, 3);
   const earlier = experiences.slice(3);
+
+  const renderIllustration = (id: string) => {
+    switch (id) {
+      case "clinikally":
+        return <ClinikallyIllustration />;
+      case "meradoc":
+        return <MeradocIllustration />;
+      case "asteride":
+        return <AsterideIllustration />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <section id="experience" className="relative py-20 sm:py-28 px-4 sm:px-6 overflow-hidden">
@@ -39,7 +57,7 @@ export default function Experience() {
         </motion.div>
 
         {/* Featured Top 3 Experiences with Motion Timeline Cards */}
-        <div className="space-y-6 sm:space-y-8 mb-16 sm:mb-20">
+        <div className="space-y-8 sm:space-y-10 mb-16 sm:mb-20">
           {featured.map((exp, index) => (
             <motion.article
               key={exp.id}
@@ -77,6 +95,9 @@ export default function Experience() {
                   <span>{exp.location}</span>
                 </div>
               </div>
+
+              {/* Interactive Technical Architectural Illustration */}
+              {renderIllustration(exp.id)}
 
               {/* Summary */}
               <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-5 sm:mb-6 font-normal">
