@@ -8,6 +8,12 @@ import {
   MeradocIllustration,
   AsterideIllustration,
 } from "@/components/ExperienceIllustrations";
+import {
+  YCombinatorLogo,
+  ClinikallyLogo,
+  MeradocLogo,
+  AsterideLogo,
+} from "@/components/CompanyLogos";
 
 const companyBadgeColors: Record<string, string> = {
   clinikally: "bg-emerald-500/10 text-emerald-300 border-emerald-500/30",
@@ -27,6 +33,19 @@ export default function Experience() {
         return <MeradocIllustration />;
       case "asteride":
         return <AsterideIllustration />;
+      default:
+        return null;
+    }
+  };
+
+  const renderLogo = (id: string) => {
+    switch (id) {
+      case "clinikally":
+        return <ClinikallyLogo size={36} />;
+      case "meradoc":
+        return <MeradocLogo size={36} />;
+      case "asteride":
+        return <AsterideLogo size={36} />;
       default:
         return null;
     }
@@ -67,29 +86,35 @@ export default function Experience() {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group relative bg-zinc-900/50 border border-zinc-800/90 rounded-2xl p-5 sm:p-9 hover:border-indigo-500/50 hover:shadow-[0_0_30px_rgba(99,102,241,0.12)] transition-all duration-300 backdrop-blur-md"
             >
-              {/* Index counter & YC badge */}
-              <div className="flex items-center justify-between gap-3 mb-3 sm:mb-4">
+              {/* Header Bar with Case Study Index & YC Badge */}
+              <div className="flex items-center justify-between gap-3 mb-4">
                 <span className="font-mono text-[11px] sm:text-xs text-indigo-400/80 tracking-widest uppercase">
                   Case Study 0{index + 1}
                 </span>
                 {exp.companyTag && (
-                  <span className="text-[11px] sm:text-xs font-mono font-semibold text-amber-400 bg-amber-500/10 border border-amber-500/30 px-2.5 py-0.5 rounded-full shadow-[0_0_10px_rgba(245,158,11,0.15)]">
-                    ★ {exp.companyTag}
-                  </span>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FF6600]/10 border border-[#FF6600]/30 shadow-[0_0_12px_rgba(255,102,0,0.2)]">
+                    <YCombinatorLogo size={14} />
+                    <span className="text-[11px] sm:text-xs font-mono font-bold text-[#FF6600] tracking-wide">
+                      Y Combinator
+                    </span>
+                  </div>
                 )}
               </div>
 
-              {/* Title & Metadata */}
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-2 mb-4">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-indigo-200 transition-colors">
-                    {exp.company}
-                  </h3>
-                  <div className="text-xs sm:text-sm font-semibold text-indigo-400 mt-0.5">
-                    {exp.role}
+              {/* Title, Logo & Metadata */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+                <div className="flex items-center gap-3.5">
+                  {renderLogo(exp.id)}
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-indigo-200 transition-colors">
+                      {exp.company}
+                    </h3>
+                    <div className="text-xs sm:text-sm font-semibold text-indigo-400">
+                      {exp.role}
+                    </div>
                   </div>
                 </div>
-                <div className="text-[11px] sm:text-xs font-mono text-zinc-400 flex items-center gap-1.5 sm:gap-2 mt-1 sm:mt-0">
+                <div className="text-[11px] sm:text-xs font-mono text-zinc-400 flex items-center gap-1.5 sm:gap-2">
                   <span>{exp.period}</span>
                   <span className="text-zinc-600">·</span>
                   <span>{exp.location}</span>
