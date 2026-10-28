@@ -1,6 +1,6 @@
-// SVG Company and Organization Logos
-// Authentic vector representations for Y Combinator and featured employers
+import Image from "next/image";
 
+// Official Y Combinator SVG Logo
 export function YCombinatorLogo({ size = 20, className = "" }: { size?: number; className?: string }) {
   return (
     <svg
@@ -20,42 +20,59 @@ export function YCombinatorLogo({ size = 20, className = "" }: { size?: number; 
   );
 }
 
-export function ClinikallyLogo({ size = 28, className = "" }: { size?: number; className?: string }) {
+// Official Clinikally Icon / Logo from clinikally.com
+export function ClinikallyLogo({ size = 36, className = "" }: { size?: number; className?: string }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white font-bold font-mono shadow-[0_0_15px_rgba(16,185,129,0.3)] shrink-0 ${className}`}
-      style={{ width: size, height: size, fontSize: size * 0.46 }}
+      className={`relative flex items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 p-1.5 shadow-[0_0_15px_rgba(16,185,129,0.15)] shrink-0 overflow-hidden ${className}`}
+      style={{ width: size, height: size }}
     >
-      <svg width={size * 0.6} height={size * 0.6} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-        <path d="M12 2v20M2 12h20" strokeLinecap="round" />
-        <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
-      </svg>
+      <Image
+        src="/logos/clinikally.png"
+        alt="Clinikally official logo"
+        width={size}
+        height={size}
+        className="object-contain w-full h-full"
+        unoptimized
+      />
     </div>
   );
 }
 
-export function MeradocLogo({ size = 28, className = "" }: { size?: number; className?: string }) {
+// Official MeraDoc Logo from meradoc.com
+export function MeradocLogo({ size = 36, className = "" }: { size?: number; className?: string }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 text-white font-bold font-mono shadow-[0_0_15px_rgba(59,130,246,0.3)] shrink-0 ${className}`}
-      style={{ width: size, height: size, fontSize: size * 0.46 }}
+      className={`relative flex items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 p-1.5 shadow-[0_0_15px_rgba(59,130,246,0.15)] shrink-0 overflow-hidden ${className}`}
+      style={{ width: size, height: size }}
     >
-      <svg width={size * 0.6} height={size * 0.6} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-        <path d="M4 19V5l8 6 8-6v14" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      <Image
+        src="/logos/meradoc-icon.svg"
+        alt="MeraDoc official logo"
+        width={size}
+        height={size}
+        className="object-contain w-full h-full"
+        unoptimized
+      />
     </div>
   );
 }
 
-export function AsterideLogo({ size = 28, className = "" }: { size?: number; className?: string }) {
+// Official Asteride Logo from asteride.co
+export function AsterideLogo({ size = 36, className = "" }: { size?: number; className?: string }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 text-white font-bold font-mono shadow-[0_0_15px_rgba(168,85,247,0.3)] shrink-0 ${className}`}
-      style={{ width: size, height: size, fontSize: size * 0.46 }}
+      className={`relative flex items-center justify-center rounded-xl bg-zinc-900 border border-zinc-800 p-1.5 shadow-[0_0_15px_rgba(168,85,247,0.15)] shrink-0 overflow-hidden ${className}`}
+      style={{ width: size, height: size }}
     >
-      <svg width={size * 0.6} height={size * 0.6} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
+      <Image
+        src="/logos/asteride-icon.png"
+        alt="Asteride official logo"
+        width={size}
+        height={size}
+        className="object-contain w-full h-full"
+        unoptimized
+      />
     </div>
   );
 }
